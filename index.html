@@ -81,6 +81,17 @@
         <button id="reset">Reset</button>
         <div class="small" id="derived"></div>
       </div>
+        <div class="row">
+        <label for="flow">Detector f_low (Hz)</label>
+        <input id="flow" type="range" min="1" max="100" value="20" step="1">
+        <div class="val" id="flowv"></div>
+      </div>
+
+      <div class="row">
+        <label for="fhigh">Detector f_high (Hz)</label>
+        <input id="fhigh" type="range" min="50" max="2000" value="512" step="1">
+        <div class="val" id="fhighv"></div>
+      </div>
 
       <p class="note">
         Model: a fast, browser-friendly <b>pedagogical IMR-like waveform</b> (inspiral chirp + smooth merger + damped ringdown).
@@ -100,10 +111,10 @@
 (() => {
   // ---------- UI helpers ----------
   const $ = (id) => document.getElementById(id);
-  const sliders = ["m1","m2","dist","inc","tc","tau","dur","fs"].map($);
+  const sliders = ["m1","m2","dist","inc","tc","tau","dur","fs","flow","fhigh"].map($);
   const setVal = (id, txt) => $(id+"v").textContent = txt;
 
-  const defaults = { m1:35, m2:30, dist:400, inc:30, tc:2.6, tau:10, dur:4.0, fs:1024 };
+  const defaults = { m1:35, m2:30, dist:400, inc:30, tc:2.6, tau:10, dur:4.0, fs:1024, flow:20, fhigh:512 };
 
   // ---------- Physics-ish helpers (pedagogical) ----------
   const PI = Math.PI;
