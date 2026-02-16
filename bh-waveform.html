@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;BH Merger Waveform Explorer (Pedagogical)&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.plot.ly/plotly-2.30.0.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { --bg:#0b0f17; --panel:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#60a5fa; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>background:var(--bg); color:var(--text); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap { max-width:1100px; margin:0 auto; padding:18px; display:grid; gap:14px; grid-template-columns: 360px 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card { background:var(--panel); border:1px solid rgba(255,255,255,0.06); border-radius:14px; padding:14px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { font-size:18px; margin:0 0 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row { display:flex; justify-content:space-between; gap:10px; align-items:center; margin:10px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label { font-size:13px; color:var(--muted); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="range"] { width: 190px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.val { font-variant-numeric: tabular-nums; font-size:13px; color:var(--text); min-width:90px; text-align:right; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.note { color:var(--muted); font-size:12px; line-height:1.35; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button { cursor:pointer; border:1px solid rgba(255,255,255,0.12); background:transparent; color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">             </span>border-radius:10px; padding:8px 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover { border-color: rgba(96,165,250,0.6); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.small { font-size:12px; color:var(--muted); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 900px) { .wrap { grid-template-columns: 1fr; } input[type="range"]{ width: 100%; } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;BH Merger Waveform Explorer&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="m1"&gt;m1 (M☉)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="m1" type="range" min="5" max="100" value="35" step="1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="m1v"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="m2"&gt;m2 (M☉)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="m2" type="range" min="5" max="100" value="30" step="1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="m2v"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="dist"&gt;Distance (Mpc)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="dist" type="range" min="50" max="2000" value="400" step="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="distv"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="inc"&gt;Inclination ι (deg)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="inc" type="range" min="0" max="90" value="30" step="1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="incv"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="tc"&gt;Coalescence time tc (s)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="tc" type="range" min="0.2" max="3.8" value="2.6" step="0.01"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="tcv"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="tau"&gt;Ringdown τ (ms)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="tau" type="range" min="1" max="40" value="10" step="0.5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="tauv"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="dur"&gt;Window length (s)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="dur" type="range" min="1.0" max="8.0" value="4.0" step="0.1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="durv"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="fs"&gt;Sample rate (Hz)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="fs" type="range" min="256" max="4096" value="1024" step="256"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="val" id="fsv"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row" style="margin-top:14px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="reset"&gt;Reset&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="small" id="derived"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="note"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Model: a fast, browser-friendly &lt;b&gt;pedagogical IMR-like waveform&lt;/b&gt; (inspiral chirp + smooth merger + damped ringdown).</p>
+<p class="p1"><span class="Apple-converted-space">        </span>For outreach/intuition it’s great; for data analysis you’d use LALSuite/IMRPhenom etc.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="plot" style="height:520px;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="note"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Tip: make the masses heavier → waveform gets shorter and “lower pitched”. Increase distance → smaller amplitude.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// ---------- UI helpers ----------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const $ = (id) =&gt; document.getElementById(id);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sliders = ["m1","m2","dist","inc","tc","tau","dur","fs"].map($);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const setVal = (id, txt) =&gt; $(id+"v").textContent = txt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const defaults = { m1:35, m2:30, dist:400, inc:30, tc:2.6, tau:10, dur:4.0, fs:1024 };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// ---------- Physics-ish helpers (pedagogical) ----------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const PI = Math.PI;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const G = 6.67430e-11; <span class="Apple-converted-space">                </span>// SI</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const c = 299792458; <span class="Apple-converted-space">                  </span>// SI</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const MSUN = 1.98847e30; <span class="Apple-converted-space">              </span>// kg</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const MPC = 3.0856775814913673e22; <span class="Apple-converted-space">    </span>// m</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function clamp(x,a,b){ return Math.max(a, Math.min(b,x)); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function chirpMass(m1, m2) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// m1, m2 in solar masses</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const M = m1 + m2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const eta = (m1*m2)/(M*M);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return M * Math.pow(eta, 3/5);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function symmetricMassRatio(m1, m2) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const M = m1 + m2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return (m1*m2)/(M*M);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function fISCO(m1, m2) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Rough ISCO frequency for non-spinning BH binary in Hz (using total mass)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const M = (m1+m2) * MSUN;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return (1/(6*Math.sqrt(6)*PI)) * (c*c*c)/(G*M);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function smoothstep(x) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 0..1 -&gt; 0..1 smooth</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return x*x*(3-2*x);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function generateWaveform(params) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const {m1,m2,distMpc,incDeg,tc,tauMs,dur,fs} = params;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const n = Math.floor(dur * fs);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const t0 = 0.0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const dt = 1/fs;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Derived quantities</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const Mc = chirpMass(m1,m2) * MSUN; <span class="Apple-converted-space">        </span>// kg</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const eta = symmetricMassRatio(m1,m2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const Mtot = (m1+m2) * MSUN;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const D = distMpc * MPC;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const inc = incDeg * PI/180;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Polarization factor (simple + polarization projection)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const F = (1 + Math.cos(inc)*Math.cos(inc)) / 2;<span class="Apple-converted-space">  </span>// between 0.5 and 1</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Inspiral frequency evolution (Newtonian leading order): f(t) ~ (tc - t)^(-3/8)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// We'll pick a starting frequency from the window so that it stays within audio-ish range.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const f_isco = fISCO(m1,m2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const f_merge = 0.6 * f_isco; // place "merger" below ISCO for smoothness</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const f_ring = 0.8 * f_isco;<span class="Apple-converted-space">  </span>// ringdown-ish</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Amplitude scaling (not physical absolute strain; shaped to look right)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Use Mc^(5/3) f^(2/3) / D scaling and normalize to nice plot units.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const A0 = 5e-22; // arbitrary base to get LIGO-like magnitudes on screen</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const K = A0 * F * (400/distMpc); // simple distance scaling around 400 Mpc</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Ringdown parameters</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tau = (tauMs/1000.0); <span class="Apple-converted-space">                </span>// s</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const omega_ring = 2*PI*f_ring;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const t = new Array(n);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const h = new Array(n);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Phase integration</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let phi = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let prev_f = 30;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Build a transition around tc: inspiral for t&lt;tc, ringdown for t&gt;=tc</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for (let i=0;i&lt;n;i++) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const ti = t0 + i*dt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>t[i] = ti - tc; // plot centered around coalescence</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const dtc = (tc - ti);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (dtc &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Inspiral: f(t) = f0 * (dtc/dtc0)^(-3/8), but choose f0 dynamically</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Choose dtc0 so that at ti=0 we are near some f_start ~ 25 Hz.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const dtc0 = dur; // reference</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const f_start = 25;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let f = f_start * Math.pow(dtc / dtc0, -3/8);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>f = clamp(f, 15, f_merge);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Phase increment</p>
+<p class="p1"><span class="Apple-converted-space">        </span>phi += 2*PI * 0.5*(f + prev_f) * dt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>prev_f = f;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// amplitude ~ f^(2/3)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const amp = K * Math.pow(f/50, 2/3);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Add a mild taper near merger</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const x = clamp(1 - dtc/0.25, 0, 1); // last 0.25s ramps</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const boost = 1 + 1.8*smoothstep(x); // merger “loudness”</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h[i] = boost * amp * Math.cos(phi);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Ringdown: damped sinusoid starting at tc, continuous phase</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tr = -dtc;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const amp0 = K * Math.pow(f_merge/50, 2/3) * 2.8; // match-ish merger amp</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h[i] = amp0 * Math.exp(-tr/tau) * Math.cos(omega_ring*tr + phi);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>t, h,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>derived: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Mc_solar: chirpMass(m1,m2),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>eta,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>f_isco,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>f_merge,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>f_ring</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// ---------- Plot ----------</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let initialized = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function getParams() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ensure m1 &gt;= m2 for display niceness (swap if needed)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let m1 = parseFloat($("m1").value);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let m2 = parseFloat($("m2").value);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (m2 &gt; m1) { const tmp=m1; m1=m2; m2=tmp; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>m1, m2,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>distMpc: parseFloat($("dist").value),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>incDeg: parseFloat($("inc").value),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tc: parseFloat($("tc").value),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tauMs: parseFloat($("tau").value),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>dur: parseFloat($("dur").value),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>fs: parseInt($("fs").value, 10),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function updateLabels(p, d) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("m1", `${p.m1.toFixed(0)}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("m2", `${p.m2.toFixed(0)}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("dist", `${p.distMpc.toFixed(0)}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("inc", `${p.incDeg.toFixed(0)}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("tc", `${p.tc.toFixed(2)}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("tau", `${p.tauMs.toFixed(1)}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("dur", `${p.dur.toFixed(1)}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setVal("fs", `${p.fs}`);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("derived").innerHTML =</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`Mc=${d.Mc_solar.toFixed(2)} M☉ · η=${d.eta.toFixed(3)}&lt;br&gt;` +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`fISCO≈${d.f_isco.toFixed(0)} Hz · fmerge≈${d.f_merge.toFixed(0)} Hz`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function render() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const p = getParams();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const {t, h, derived} = generateWaveform(p);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateLabels(p, derived);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const trace = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>x: t,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>y: h,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>mode: "lines",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>name: "h(t)",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hovertemplate: "t=%{x:.4f} s&lt;br&gt;h=%{y:.3e}&lt;extra&gt;&lt;/extra&gt;"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const layout = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>paper_bgcolor: "rgba(0,0,0,0)",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>plot_bgcolor: "rgba(0,0,0,0)",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: {l:60,r:20,t:30,b:55},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>xaxis: { title: "Time relative to coalescence (s)", gridcolor: "rgba(255,255,255,0.08)", zerolinecolor:"rgba(255,255,255,0.15)" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>yaxis: { title: "Strain (arb. scaled)", gridcolor: "rgba(255,255,255,0.08)", zerolinecolor:"rgba(255,255,255,0.15)" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font: { color: "#e5e7eb" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const config = { responsive: true, displaylogo: false };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!initialized) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Plotly.newPlot("plot", [trace], layout, config);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>initialized = true;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Plotly.react("plot", [trace], layout, config);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Wire events</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sliders.forEach(s =&gt; s.addEventListener("input", render));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("reset").addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Object.entries(defaults).forEach(([k,v]) =&gt; $(k).value = v);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>render();</p>
+<p class="p1">})();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
