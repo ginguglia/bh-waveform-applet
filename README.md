@@ -20,7 +20,8 @@ Live demo (GitHub Pages):
   - coalescence time and ringdown time,
   - sample rate and window length.
 - Provides a **“detector view”** via a simple hard bandpass in frequency space:
-  - choose presets (aLIGO-ish, ET-ish, etc.) or set custom f_low / f_high.
+  - choose presets (aLIGO-ish, ET-ish, etc.) or set custom f_low / f_high.  
+- Provides an interactive chirp audio playback feature that reproduces the characteristic “chirp” sound associated with the (pedagogical) merger waveform.
 
 ## Intended use
 This is an **outreach / intuition / teaching** tool.
